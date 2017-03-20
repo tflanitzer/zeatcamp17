@@ -28,7 +28,7 @@ export class TranslatorService {
       });
       let options = new RequestOptions( { headers: requestHeaders});
 
-      return this.http.get(url, options)
+      return this.http.get(url, options) 
         .map(response => {
           let parser = new DOMParser();
           let xml = parser.parseFromString(response.text(), 'text/xml');
