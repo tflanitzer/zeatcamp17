@@ -1,0 +1,13 @@
+<h2>
+  Translator (DE => EN)
+</h2>
+
+<p>Text to translate:</p>
+<textarea name="textToTranslate" [(ngModel)]="textToTranslate">  
+</textarea>
+
+<p>Translated text:</p>
+<textarea name="translatedText" [(ngModel)]="translatedText">
+</textarea>
+
+<button title="Translate" (click)="performTranslation()">Translate</button>
