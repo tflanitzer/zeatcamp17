@@ -1,0 +1,11 @@
+<h2>
+  Bitte stell dich vor! Wer bist du, woher kommst du?
+</h2>
+
+<div class="form-group">
+  <input class="form-control" name="introduction" [(ngModel)]="introductionText" (keydown.enter)="submitIntroduction()">
+</div>
+
+<div class="form-group">
+  <button class="form-control" (click)="submitIntroduction()">Fertig</button>
+</div>

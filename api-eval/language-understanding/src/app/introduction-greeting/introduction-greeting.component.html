@@ -1,0 +1,5 @@
+<div class="blockquote">
+  <h3>Hallo <mark class="detected">{{person.name}}</mark>!</h3>
+  <ng-container *ngIf="person.origin"><h3>Ist <mark class="detected">{{person.origin}}</mark> eine Reise wert?</h3></ng-container>
+  <ng-container *ngIf="person.age"><h3>Bist du wirklich <mark class="detected">{{person.age}}</mark> Jahre alt? Du schaust viel jünger aus.</h3></ng-container>
+</div>

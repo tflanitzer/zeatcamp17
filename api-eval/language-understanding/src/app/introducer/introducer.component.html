@@ -1,0 +1,3 @@
+<app-introduction-form (submit)="analyzeIntroduction($event)"></app-introduction-form>
+
+<app-introduction-greeting *ngIf="introducedPerson" [person]="introducedPerson"></app-introduction-greeting>
