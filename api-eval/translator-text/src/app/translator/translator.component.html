@@ -3,11 +3,13 @@
 </h2>
 
 <p>Text to translate:</p>
-<textarea name="textToTranslate" [(ngModel)]="textToTranslate">  
+<textarea name="textToTranslate" [(ngModel)]="textToTranslate" (keydown.control.enter)="performTranslation()" rows="8" cols="80">  
 </textarea>
 
 <p>Translated text:</p>
-<textarea name="translatedText" [(ngModel)]="translatedText">
+<textarea name="translatedText" [(ngModel)]="translatedText" rows="8" cols="80" readonly>
 </textarea>
 
-<button title="Translate" (click)="performTranslation()">Translate</button>
+<div>
+  <button title="Translate" (click)="performTranslation()">Translate</button>
+</div>
