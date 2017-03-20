@@ -7,8 +7,10 @@ import 'rxjs/add/operator/concatMap'
 
 @Injectable()
 export class TranslatorService {
-  authorizationEndpoint = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
-  translationEndpoint = 'https://api.cognitive.microsoft.com/sts/v1.0/Translate';
+  authorizationEndpoint = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
+  translationEndpoint = 
+    'https://api.microsofttranslator.com/v2/http.svc/Translate';
+    //'https://api.cognitive.microsoft.com/sts/v1.0/Translate';
 
   constructor(private http: Http) { }
 
@@ -19,12 +21,19 @@ export class TranslatorService {
   }
 
   performTranslation(sourceText: string, token: string) : Observable<string> {
-      let url = this.translationEndpoint + '?text=' + sourceText + '&from=de&to=en';     
       let authorizationHeader = 'Bearer ' + token;
-      let options = new RequestOptions({ headers: new Headers({'Authrization': authorizationHeader})});
+      let url = this.translationEndpoint + '?text=' + encodeURI(sourceText) + '&from=de&to=en&appid=' + authorizationHeader;     
+      let requestHeaders = new Headers({
+        'Accept': 'application/json'
+      });
+      let options = new RequestOptions( { headers: requestHeaders});
 
       return this.http.get(url, options)
-        .map(response => response.text());
+        .map(response => {
+          let parser = new DOMParser();
+          let xml = parser.parseFromString(response.text(), 'text/xml');
+          return xml.documentElement.textContent;
+        });
   }
 
   getAccessToken() : Observable<string> {
