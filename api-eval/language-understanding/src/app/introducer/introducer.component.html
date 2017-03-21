@@ -1,3 +1,7 @@
 <app-introduction-form (submit)="analyzeIntroduction($event)"></app-introduction-form>
 
 <app-introduction-greeting *ngIf="introducedPerson" [person]="introducedPerson"></app-introduction-greeting>
+
+<h2 *ngIf="noResult">
+    Tut mir leid, ich verstehe dich nicht.
+</h2>

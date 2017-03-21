@@ -20,9 +20,11 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/ng2-slim-loading-bar/bundles/style.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "lib/speech.1.0.0.js"],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
