@@ -1,0 +1,15 @@
+<!-- Define <video> object to hold webcam image -->
+<video id="video" [src]="videosrc" class="cssWebCam"></video>
+
+ <div class="output"> 
+   <img [src]="imageURL" id="photo" alt="The screen capture will appear in this box." alt="still no photo">  
+</div> 
+
+<!-- Capture button --> 
+ <div>
+  <button title="capture" (click)="performCapture()">Capture Picture</button>
+</div>
+ 
+<!-- Image URL output --> 
+<label>Image URL</label> 
+<input  [(ngModel)]="imageURLAsString" type="text" id="image-url-input" disabled> 
