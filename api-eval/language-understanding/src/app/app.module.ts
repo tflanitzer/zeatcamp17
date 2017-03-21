@@ -10,6 +10,7 @@ import { IntroductionFormComponent } from './introduction-form/introduction-form
 import { IntroductionGreetingComponent } from './introduction-greeting/introduction-greeting.component';
 import { LuisClientService } from "app/luis-client.service";
 import { ListenerService } from "app/listener.service";
+import { SpeakerService } from "app/speaker.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ListenerService } from "app/listener.service";
   ],
   providers: [
     LuisClientService,
-    ListenerService
+    ListenerService,
+    SpeakerService
   ],
   bootstrap: [AppComponent]
 })

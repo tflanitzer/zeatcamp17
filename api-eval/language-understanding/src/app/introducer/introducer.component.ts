@@ -25,6 +25,7 @@ export class IntroducerComponent implements OnInit {
 
     this.slimLoadingBarService.reset();
     this.slimLoadingBarService.start();
+    
     this.luisClient.analyzeIntroduction(introductionText).subscribe(introducedPerson => 
     {
       this.introducedPerson = introducedPerson;
