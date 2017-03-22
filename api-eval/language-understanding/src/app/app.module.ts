@@ -11,6 +11,7 @@ import { IntroductionGreetingComponent } from './introduction-greeting/introduct
 import { LuisClientService } from "app/luis-client.service";
 import { ListenerService } from "app/listener.service";
 import { SpeakerService } from "app/speaker.service";
+import { StsTokenService } from "app/sts-token.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SpeakerService } from "app/speaker.service";
   providers: [
     LuisClientService,
     ListenerService,
-    SpeakerService
+    SpeakerService,
+    StsTokenService
   ],
   bootstrap: [AppComponent]
 })

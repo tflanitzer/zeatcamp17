@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, URLSearchParams, ResponseContentType } from "@angular/http";
 import { Observable } from "rxjs/Observable";
-import { StsTokenService } from "app/sts-token.service";
 
 import 'rxjs/add/operator/concatMap'
+import { StsTokenService } from "app/+shared/sts-token.service";
 
 @Injectable()
 export class SpeakerService {
