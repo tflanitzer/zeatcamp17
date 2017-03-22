@@ -26,7 +26,6 @@ export class FetchPersonService {
     console.log(url);
     return this.http.get(url, options)
                     .map(extractData => {
-                      console.log(extractData);
                       return extractData.json();
                     });
     

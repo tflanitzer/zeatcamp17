@@ -1,8 +1,18 @@
 
-<h1>Face Recognition</h1>
-<app-webcam></app-webcam>
+<div class="container">
+  <div class="text-center">
+    <app-webcam></app-webcam>
+  </div>
+</div>
+<div class="container">
+  <div class="text-center">
  <nav>
-    <a routerLink="/persons" routerLinkActive="active">bekannte Personen</a>
-    <a routerLink="/detection" routerLinkActive="active">Detection</a>
+    <button routerLink="/persons" class="btn btn-success">Train !</button>
+    
+    <button routerLink="/detection" class="btn btn-danger">Detection</button>
   </nav>
-<router-outlet></router-outlet>
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

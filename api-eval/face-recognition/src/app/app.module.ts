@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { WebcamComponent } from './webcam/webcam.component';
@@ -18,9 +18,11 @@ import { IdentifyPersonComponent } from './identify-person/identify-person.compo
 import { IdentifyService } from "app/identify.service";
 import { FetchPersonService } from "app/fetch-person.service";
 import { FaceRecognitionServiceService } from "app/face-recognition-service.service";
+import { PersonsModule } from "app/persons/persons.module";
+
 
 const appRoutes: Routes = [
-  { path: 'persons', component: AddPersonComponent },
+
   { path: 'detection', component: IdentifyPersonComponent },
 ];
 
@@ -28,7 +30,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     WebcamComponent,
-    AddPersonComponent,
     TrainPersonComponent,
     IdentifyPersonComponent
   ],
@@ -36,7 +37,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    PersonsModule,
+    RouterModule.forRoot(
+      appRoutes
+    )
   ],
   providers: [
     ListPersonsService,
@@ -46,8 +50,14 @@ const appRoutes: Routes = [
     TrainService,
     IdentifyService,
     FetchPersonService,
-    FaceRecognitionServiceService
+    FaceRecognitionServiceService,
+    
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+
+}
