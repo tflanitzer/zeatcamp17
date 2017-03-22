@@ -9,6 +9,7 @@ import { StsTokenService } from "app/+shared/sts-token.service";
 export class SpeakerService {
   readonly synthesizeEndpoint = 'https://speech.platform.bing.com/synthesize';
   readonly voiceIdentifier = "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)";
+  readonly bingSpeechSubscriptionKey = 'd6401364572d44d48bdc8b7b37241517'; // Bing speech
 
   readonly audioContext = new AudioContext();
 
@@ -20,7 +21,7 @@ export class SpeakerService {
   }
 
   private synthesize(text: string): Observable<ArrayBuffer> {
-    return this.tokenService.getAuthorizationHeader().concatMap(authorizationHeader => {
+    return this.tokenService.getAuthorizationHeader(this.bingSpeechSubscriptionKey).concatMap(authorizationHeader => {
       // let urlParams = new URLSearchParams();
       // urlParams.append('VoiceType', 'Female');
       // urlParams.append('Locale', 'de-DE');

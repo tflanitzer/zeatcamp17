@@ -34,12 +34,16 @@ export class IntroductionGreetingComponent implements OnInit, OnChanges {
       } else {
         text = text + ' du Jungspund.';
       }
-    } else {
+    } else if (text != '') {
       text = text + '.';
     }
     
     if (this.person.origin) {
       text = text + ' In ' + this.person.origin + ' wohnen die hellsten Köpfe.'
+    }
+
+    if (text === '') {
+      return;
     }
     
     this.speaker.speak(text);
