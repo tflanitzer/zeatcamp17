@@ -8,10 +8,6 @@ import { IntroductionGreetingComponent } from "app/+language-understanding/intro
 import { HttpModule } from "@angular/http";
 import { SlimLoadingBarModule } from "ng2-slim-loading-bar";
 import { SharedModule } from "app/+shared/shared.module";
-import { LuisClientService } from "app/+language-understanding/services/luis-client.service";
-import { ListenerService } from "app/+language-understanding/services/listener.service";
-import { SpeakerService } from "app/+language-understanding/services/speaker.service";
-import { StsTokenService } from "app/+language-understanding/services/sts-token.service";
 
 @NgModule({
   imports: [
@@ -26,11 +22,6 @@ import { StsTokenService } from "app/+language-understanding/services/sts-token.
     IntroductionFormComponent,
     IntroductionGreetingComponent
   ],
-  providers: [
-    LuisClientService,
-    ListenerService,
-    SpeakerService,
-    StsTokenService
-  ]
+  providers: []
 })
 export class LanguageUnderstandingModule { }

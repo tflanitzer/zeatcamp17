@@ -3,7 +3,7 @@ import { Http, RequestOptions, Headers, URLSearchParams, ResponseContentType } f
 import { Observable } from "rxjs/Observable";
 
 import 'rxjs/add/operator/concatMap'
-import { StsTokenService } from "app/+language-understanding/services/sts-token.service";
+import { StsTokenService } from "app/+shared/sts-token.service";
 
 @Injectable()
 export class SpeakerService {

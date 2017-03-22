@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Subject } from "rxjs/Subject";
-import { ListenerService } from "app/+language-understanding/services/listener.service";
+import { ListenerService } from "app/+shared/listener.service";
 
 import 'rxjs/add/operator/debounceTime'
 
