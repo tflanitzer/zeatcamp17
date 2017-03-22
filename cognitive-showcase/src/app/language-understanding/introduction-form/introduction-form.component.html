@@ -1,18 +1,8 @@
 <div class="spaced_form">
 
-  <h3>
-    Wer bist du, woher kommst du, wie alt bist du?
-  </h3>
-
   <form class="form">
     <div class="form-group">
-      <div class="input-group input-group-lg reasonable_max_width">
-        <input class="form-control form-control-lg" name="introduction" [(ngModel)]="introductionText" (keydown.enter)="inputSubject.next()" (input)="inputSubject.next()">
-        <div class="input-group-addon form-control-lg" (click)="toggleListening()">
-          <span *ngIf="isListening" class="glyphicon glyphicon-stop"></span>
-          <span *ngIf="!isListening" class="glyphicon glyphicon-record"></span>
-        </div>
-      </div>
+      <app-listening-input name="introductionText" placeholder="Wer bist du, woher kommst du, wie alt bist du?" (valueChange)="submit($event)"></app-listening-input>
     </div>
   </form>
 

@@ -9,6 +9,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from './navigation/navigation.component';
 import { TranslationModule } from "app/translation/translation.module";
 import { LanguageUnderstandingModule } from "app/language-understanding/language-understanding.module";
+import { TextAnalysisModule } from "app/text-analysis/text-analysis.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LanguageUnderstandingModule } from "app/language-understanding/language
     AppRoutingModule,
     TranslationModule,
     LanguageUnderstandingModule,
+    TextAnalysisModule,
     SlimLoadingBarModule.forRoot()
   ],
   providers: [],
