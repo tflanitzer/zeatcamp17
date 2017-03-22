@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FaceRecognitionRoutingModule } from "app/face-recognition/face-recognition-routing.module";
 import { SharedModule } from "app/shared/shared.module";
+import { WrapperComponent } from './wrapper/wrapper.component';
 
 @NgModule({
   imports: [
@@ -9,6 +10,6 @@ import { SharedModule } from "app/shared/shared.module";
     FaceRecognitionRoutingModule,
     SharedModule
   ],
-  declarations: []
+  declarations: [WrapperComponent]
 })
-export class faceRecognitionModule { }
+export class FaceRecognitionModule { }

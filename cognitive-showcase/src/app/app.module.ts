@@ -10,6 +10,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { TranslationModule } from "app/translation/translation.module";
 import { LanguageUnderstandingModule } from "app/language-understanding/language-understanding.module";
 import { TextAnalysisModule } from "app/text-analysis/text-analysis.module";
+import { FaceRecognitionModule } from "app/face-recognition/face-recognition.module";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TextAnalysisModule } from "app/text-analysis/text-analysis.module";
     TranslationModule,
     LanguageUnderstandingModule,
     TextAnalysisModule,
+    FaceRecognitionModule,
     SlimLoadingBarModule.forRoot()
   ],
   providers: [],
