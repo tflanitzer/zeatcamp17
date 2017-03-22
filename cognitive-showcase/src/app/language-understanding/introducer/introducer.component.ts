@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IntroducedPerson } from "app/+language-understanding/introduced-person";
+import { IntroducedPerson } from "app/language-understanding/introduced-person";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
-import { LuisClientService } from "app/+shared/luis-client.service";
+import { LuisClientService } from "app/shared/luis-client.service";
 
 @Component({
   selector: 'app-introducer',

@@ -7,7 +7,6 @@ declare var Microsoft: any;
 
 @Injectable()
 export class ListenerService {
-  //speech = require('lib/speech.1.0.0');
   private micClient: any;
   private listeningSubject: Subject<string>;
 

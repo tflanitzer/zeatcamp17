@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, SimpleChange } from '@angular/core';
-import { IntroducedPerson } from "app/+language-understanding/introduced-person";
-import { SpeakerService } from "app/+shared/speaker.service";
+import { IntroducedPerson } from "app/language-understanding/introduced-person";
+import { SpeakerService } from "app/shared/speaker.service";
 
 @Component({
   selector: 'app-introduction-greeting',

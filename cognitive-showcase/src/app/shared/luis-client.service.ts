@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Http } from "@angular/http";
 
 import 'rxjs/add/operator/map'
-import { IntroducedPerson } from "app/+language-understanding/introduced-person";
+import { IntroducedPerson } from "app/language-understanding/introduced-person";
 
 @Injectable()
 export class LuisClientService {

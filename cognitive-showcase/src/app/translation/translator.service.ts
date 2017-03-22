@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers } from "@angular/http";
 
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/concatMap'
-import { StsTokenService } from "app/+shared/sts-token.service";
+import { StsTokenService } from "app/shared/sts-token.service";
 
 @Injectable()
 export class TranslatorService {

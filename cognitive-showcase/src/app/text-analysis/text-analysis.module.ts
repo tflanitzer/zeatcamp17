@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from "@angular/router";
 
 const appRoutes: Routes = [
-  { path: 'text-analysis', component: IntroducerComponent },
+//  { path: 'text-analysis', component: IntroducerComponent },
 ];
 
 @NgModule({

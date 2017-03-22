@@ -1,7 +1,7 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TranslatorComponent } from "app/+translation/translator/translator.component";
+import { TranslatorComponent } from "app/translation/translator/translator.component";
 
 const appRoutes: Routes = [
   { path: 'translation', component: TranslatorComponent },
