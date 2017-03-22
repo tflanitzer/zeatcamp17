@@ -19,10 +19,10 @@ import { FetchPersonService } from "app/fetch-person.service";
           <label for="pwd">UserData:</label>
           <input type="text" class="form-control" id="userData"  value="{{ person.userData }}">
         </div>
-        <button class="btn btn-danger" (click)="sample()">Delete</button>
-        <button class="btn btn-success">Update</button>
-        <button class="btn btn-danger">Clear Trainingdata</button>
-        <button class="btn btn-success">Train</button>
+        <button class="btn btn-danger" (click)="delete()">Delete</button>
+        <!--<button class="btn btn-success">Update</button>-->
+        <!--<button class="btn btn-danger">Clear Trainingdata</button>-->
+        <button class="btn btn-success" (click)="train()">Train</button>
      
     </div>
   </div>
@@ -47,11 +47,11 @@ export class PersonDetailComponent implements OnInit {
       .subscribe((person: Person) => this.person = person);
   }
 
-  sample() {
+  delete() {
     console.log(this.person.name)
   }
 
-  gotoHeroes() {
-    this.router.navigate(['/persons']);
+  train() {
+    this.router.navigate(['/train', this.person.personId]);
   }
 }

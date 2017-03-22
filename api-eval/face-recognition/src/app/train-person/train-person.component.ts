@@ -14,6 +14,8 @@ import { Observable } from "rxjs/Observable";
   styleUrls: ['./train-person.component.css']
 })
 export class TrainPersonComponent implements OnInit {
+    
+    private sizeOfSample: number = 0;
 
     private personId:string = "6d0b2806-e7a0-40e8-ba38-3065f43957a3";
     public videosrc:any;
@@ -35,7 +37,11 @@ export class TrainPersonComponent implements OnInit {
     ngOnInit() {
         let timer = Observable.timer(8000,7000);
         timer.subscribe(t =>
+          {if (this.sizeOfSample > 9) {
+
+          } else {
             this.addFace()
+          }}
         );
     }
 

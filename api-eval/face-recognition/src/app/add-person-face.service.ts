@@ -22,7 +22,7 @@ export class AddPersonFaceService {
 
     return this.http.post(url, data, options) 
                         .map(extractData => { 
-                            return extractData.json();
+                            return extractData;
                           }
                         );
   }

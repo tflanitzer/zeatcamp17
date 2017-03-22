@@ -5,7 +5,9 @@ import { FormsModule }    from '@angular/forms';
 import { PersonListComponent }    from './person-list.component';
 import { PersonDetailComponent }  from './person-detail.component';
 
-import { PersonRoutingModule} from './person-routing.module';
+import { PersonRoutingModule } from './person-routing.module';
+import { PersonAddComponent } from "app/persons/person-add.component";
+import { PersonTrainComponent } from "app/persons/person-train.component";
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import { PersonRoutingModule} from './person-routing.module';
   ],
   declarations: [
     PersonDetailComponent,
-    PersonListComponent
+    PersonListComponent,
+    PersonAddComponent,
+    PersonTrainComponent
 
   ]
 })

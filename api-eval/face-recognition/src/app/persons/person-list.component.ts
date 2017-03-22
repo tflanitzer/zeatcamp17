@@ -42,13 +42,12 @@ export class PersonListComponent implements OnInit {
 
   isSelected(person: Person) { return person.personId === this.selectedId; }
 
-  delete(person: Person) {
-    console.log("will be deleted")
-  }
-
 
   onSelect(person: Person) {
     this.router.navigate(['/person', person.personId]);
-    
+  }
+
+  createNew() {
+    this.router.navigate(['/addperson']);
   }
 }
