@@ -1,7 +1,9 @@
 <h2>Analysis</h2>
 
 <h3>Sentiment</h3>
-<div class="sentiment">{{analysis.sentiment}}</div>
+<div class="sentiment_border">
+  <div class="sentiment" [style.width.%]="analysis.sentiment*100">{{analysis.sentiment}}</div>
+</div>
 
 <h3>Key Phrases</h3>
 <ul>
