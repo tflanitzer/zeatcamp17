@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 
-import * as Speech from "lib/speech.1.0.0"
+declare var Bing: any;
+declare var Microsoft: any;
 
 @Injectable()
 export class ListenerService {
@@ -11,10 +12,12 @@ export class ListenerService {
   private listeningSubject: Subject<string>;
 
   constructor() {
-    this.listeningSubject = new Subject<string>();    
+    this.listeningSubject = new Subject<string>();
 
-    this.micClient = Speech.Microsoft.ProjectOxford.SpeechRecognitionServiceFactory.createMicrophoneClient(
-      Speech.Microsoft.ProjectOxford.SpeechRecognitionMode.shortDictation,
+    let speech = Microsoft.CognitiveServices.SpeechRecognition;
+
+    this.micClient = speech.SpeechRecognitionServiceFactory.createMicrophoneClient(
+      speech.SpeechRecognitionMode.shortDictation,
       'de-de',
       'd6401364572d44d48bdc8b7b37241517');
 
@@ -37,6 +40,6 @@ export class ListenerService {
   }
 
   stopListening() {
-    this.micClient.endMicAndRecognition();
+    this.micClient.endMicAndRecognition();    
   }
 }

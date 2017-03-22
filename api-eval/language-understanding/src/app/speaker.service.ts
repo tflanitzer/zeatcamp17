@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, Headers } from "@angular/http";
+import { Http, RequestOptions, Headers, URLSearchParams, ResponseContentType } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { StsTokenService } from "app/sts-token.service";
 
@@ -7,48 +7,49 @@ import 'rxjs/add/operator/concatMap'
 
 @Injectable()
 export class SpeakerService {
-  readonly synthesizeEndpoint = 'http://speech.platform.bing.com/synthesize';
+  readonly synthesizeEndpoint = 'https://speech.platform.bing.com/synthesize';
   readonly voiceIdentifier = "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)";
 
-  constructor(private http: Http, private tokenService: StsTokenService) {  }
+  readonly audioContext = new AudioContext();
+
+  constructor(private http: Http, private tokenService: StsTokenService) { 
+  }
 
   speak(text: string) {
     this.synthesize(text).subscribe(audioData => this.renderAudio(audioData));
   }
 
-  private synthesize(text: string) : Observable<Blob> {
+  private synthesize(text: string): Observable<ArrayBuffer> {
     return this.tokenService.getAuthorizationHeader().concatMap(authorizationHeader => {
-        let headers = new Headers({          
-          'Authorize': authorizationHeader,
-          'Content-Type': 'application/ssml+xml',
-          'X-MICROSOFT-OutputFormat': 'riff-16khz-16bit-mono-pcm'
-        });
-        let options = new RequestOptions({headers: headers});
+      // let urlParams = new URLSearchParams();
+      // urlParams.append('VoiceType', 'Female');
+      // urlParams.append('Locale', 'de-DE');
+      // urlParams.append('Text', text);
 
-        let parameters = {
-          VoiceType: 'Female',
-          Locale: 'de-DE',
-          Text: text
-        };
-
-        let url = this.synthesizeEndpoint;
-
-        for (let key in parameters) {
-          if (url === this.synthesizeEndpoint) {
-            url = url + '?';
-          } else {
-            url = url + '&';
-          }
-
-          url = url + key + '=' + parameters[key];
-        }
-
-        return this.http.post(url, undefined)
-          .map(response => response.blob());
+      let url = this.synthesizeEndpoint;
+      let body = "<speak version='1.0' xml:lang='de-DE'><voice xml:lang='de-DE' xml:gender='Male' name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" + text + "</voice></speak>";
+      
+      let headers = new Headers({
+        'Authorization': authorizationHeader,
+        'Content-Type': 'application/ssml+xml',
+        'X-MICROSOFT-OutputFormat': 'riff-16khz-16bit-mono-pcm'
       });
+      let options = new RequestOptions({ responseType: ResponseContentType.ArrayBuffer, headers: headers });
+
+      return this.http.post(url, body, options)
+        .map(response => {
+          return response.arrayBuffer();
+        });
+    });
   }
 
-  private renderAudio(audioData: Blob) {
+  private renderAudio(audioData: ArrayBuffer) {
+    this.audioContext.decodeAudioData(audioData, buffer => {
+      let bufferSource = this.audioContext.createBufferSource();
+      bufferSource.buffer = buffer;
 
+      bufferSource.connect(this.audioContext.destination);
+      bufferSource.start(0);
+    });
   }
 }

@@ -10,16 +10,16 @@ import 'rxjs/add/operator/debounceTime'
   styleUrls: ['./introduction-form.component.css']
 })
 export class IntroductionFormComponent implements OnInit, OnDestroy {
-  @Output() submit = new EventEmitter<string>();
+  @Output() entered = new EventEmitter<string>();
   
-  private keyUpSubject = new Subject<string>();
+  private inputSubject = new Subject<string>();
   private introductionText: string;
   private isListening: boolean;
 
   constructor(private listener: ListenerService) { }
 
   ngOnInit() {
-    this.keyUpSubject
+    this.inputSubject
       .debounceTime(1000)
       .subscribe(() => this.submitIntroduction());
   }
@@ -34,7 +34,7 @@ export class IntroductionFormComponent implements OnInit, OnDestroy {
     } else {
       this.listener.startListening().subscribe(transcript => {
         this.introductionText = transcript;
-        this.submitIntroduction();
+        this.inputSubject.next();
       });
     }
 
@@ -42,6 +42,6 @@ export class IntroductionFormComponent implements OnInit, OnDestroy {
   }
 
   submitIntroduction() {
-    this.submit.emit(this.introductionText);
+    this.entered.emit(this.introductionText);
   }
 }
