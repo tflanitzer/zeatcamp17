@@ -7,6 +7,7 @@ import { SpeakerService } from "app/shared/speaker.service";
 import { StsTokenService } from "app/shared/sts-token.service";
 import { ListeningInputComponent } from './listening-input/listening-input.component';
 import { FormsModule } from "@angular/forms";
+import { WebcamStorageService } from "app/shared/webcam-storage.service";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { FormsModule } from "@angular/forms";
     LuisClientService,
     ListenerService,
     SpeakerService,
-    StsTokenService
+    StsTokenService,
+    WebcamStorageService
   ],
   exports: [
     SlimLoadingBarModule,
