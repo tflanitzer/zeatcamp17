@@ -1,0 +1,13 @@
+<h3>Available Persons:</h3>
+<ul>
+  <li *ngFor="let person of persons">{{person.name}},{{person.userData}}, {{person.personId}}, {{person.persistedFaceIds}}</li>
+</ul>
+
+<p>
+  Name: <input type="text" name="fname" [(ngModel)]="nameToAdd"><br>
+  Content: <input type="text" name="lname" [(ngModel)]="dataToAdd"><br>
+</p>
+
+<div>
+  <button title="Add Person" (click)="addPerson()">Add Person</button>
+</div>
