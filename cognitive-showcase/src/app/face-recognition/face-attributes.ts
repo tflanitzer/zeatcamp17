@@ -1,4 +1,6 @@
-import { Emotion } from "app/emotion";
+
+
+import { Emotion } from "app/face-recognition/emotion";
 
 export class FaceAttributes {
 

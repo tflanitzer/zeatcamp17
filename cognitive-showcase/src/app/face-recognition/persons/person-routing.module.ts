@@ -1,9 +1,10 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PersonListComponent }    from './person-list.component';
-import { PersonDetailComponent } from './person-detail.component';
-import { PersonAddComponent } from "app/persons/person-add.component";
-import { PersonTrainComponent } from "app/persons/person-train.component";
+import { PersonTrainComponent } from "app/face-recognition/persons/person-train.component";
+import { PersonAddComponent } from "app/face-recognition/persons/person-add.component";
+import { PersonListComponent } from "app/face-recognition/persons/person-list.component";
+import { PersonDetailComponent } from "app/face-recognition/persons/person-detail.component";
+
 const personRoutes: Routes = [
   { path: 'persons',  component: PersonListComponent },
   { path: 'person/:id', component: PersonDetailComponent },

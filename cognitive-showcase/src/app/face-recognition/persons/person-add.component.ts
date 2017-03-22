@@ -1,8 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { ListPersonsService } from "app/list-persons.service";
-import { DefinePersonService } from "app/define-person.service";
-import { Person } from "app/person";
+import { DefinePersonService } from "app/face-recognition/define-person.service";
 
 
 @Component({

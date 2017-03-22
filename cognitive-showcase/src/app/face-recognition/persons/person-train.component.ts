@@ -1,14 +1,13 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
-import { DetectFaceService } from "app/detect-face.service";
-import { AddPersonFaceService} from 'app/add-person-face.service';
-import { TrainService } from "app/train.service";
-import { FaceRecognitionServiceService } from "app/face-recognition-service.service";
 import { Observable } from "rxjs/Observable";
 import { Params, ActivatedRoute, Router } from "@angular/router";
-import { Person } from "app/person";
-import { FetchPersonService } from "app/fetch-person.service";
 import { Subscription } from "rxjs/Subscription";
+import { Person } from "app/face-recognition/person";
+import { AddPersonFaceService } from "app/face-recognition/add-person-face.service";
+import { TrainService } from "app/face-recognition/train.service";
+import { WebcamStorageService } from "app/shared/webcam-storage.service";
+import { FetchPersonService } from "app/face-recognition/fetch-person.service";
 
 
 
@@ -33,7 +32,7 @@ export class PersonTrainComponent implements OnInit {
     constructor(
           private addPersonFaceService:AddPersonFaceService, 
           private trainService:TrainService,
-          private localService:FaceRecognitionServiceService,
+          private localService:WebcamStorageService,
           private route: ActivatedRoute,
           private router: Router,
           private service: FetchPersonService

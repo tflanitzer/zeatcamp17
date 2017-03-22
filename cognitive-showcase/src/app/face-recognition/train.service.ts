@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
-import { Person } from "app/person";
+
 
 @Injectable()
 export class TrainService {

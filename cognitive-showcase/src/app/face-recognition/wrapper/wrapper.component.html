@@ -1,3 +1,18 @@
-<p>
-  wrapper works!
-</p>
+
+<div class="container">
+  <div class="text-center">
+    <app-webcam></app-webcam>
+  </div>
+</div>
+<div class="container">
+  <div class="text-center">
+ <nav>
+    <button routerLink="/persons" class="btn btn-success">Train !</button>
+    
+    <button routerLink="/detection" class="btn btn-danger">Detection</button>
+  </nav>
+  </div>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

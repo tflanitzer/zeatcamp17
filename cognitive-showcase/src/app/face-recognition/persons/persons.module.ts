@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule }    from '@angular/forms';
 
-import { PersonListComponent }    from './person-list.component';
-import { PersonDetailComponent }  from './person-detail.component';
+import { PersonAddComponent } from "app/face-recognition/persons/person-add.component";
+import { PersonTrainComponent } from "app/face-recognition/persons/person-train.component";
+import { PersonRoutingModule } from "app/face-recognition/persons/person-routing.module";
+import { PersonDetailComponent } from "app/face-recognition/persons/person-detail.component";
+import { PersonListComponent } from "app/face-recognition/persons/person-list.component";
 
-import { PersonRoutingModule } from './person-routing.module';
-import { PersonAddComponent } from "app/persons/person-add.component";
-import { PersonTrainComponent } from "app/persons/person-train.component";
 
 @NgModule({
   imports: [

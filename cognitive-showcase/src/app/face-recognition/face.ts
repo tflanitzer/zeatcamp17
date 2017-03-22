@@ -1,4 +1,6 @@
-import { FaceAttributes } from "app/face-attributes";
+
+
+import { FaceAttributes } from "app/face-recognition/face-attributes";
 
 export class Face {
     constructor(

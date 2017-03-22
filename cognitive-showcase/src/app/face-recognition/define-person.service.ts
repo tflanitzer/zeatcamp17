@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers , Response} from "@angular/http";
 import { Observable } from "rxjs/Observable";
-import {Person} from "app/person";
+
 
 import 'rxjs/add/operator/map'
+import { Person } from "app/face-recognition/person";
 
 
 @Injectable()

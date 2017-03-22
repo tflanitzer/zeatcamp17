@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
-import { FaceRecognitionServiceService } from "app/face-recognition-service.service";
 import { Observable } from "rxjs/Rx";
+import { WebcamStorageService } from "app/shared/webcam-storage.service";
 
 
 @Component({
@@ -18,7 +18,7 @@ export class WebcamComponent implements OnInit {
 
     private videoElement:any;
 
-    constructor(private sanitizer:DomSanitizer, private element:ElementRef, private localService:FaceRecognitionServiceService) {
+    constructor(private sanitizer:DomSanitizer, private element:ElementRef, private localService:WebcamStorageService) {
     }
 
     ngOnInit() {
