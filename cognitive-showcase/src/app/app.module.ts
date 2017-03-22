@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from './navigation/navigation.component';
 import { TranslationModule } from "app/+translation/translation.module";
+import { LanguageUnderstandingModule } from "app/+language-understanding/language-understanding.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TranslationModule } from "app/+translation/translation.module";
     HttpModule,
     AppRoutingModule,
     TranslationModule,
+    LanguageUnderstandingModule,
     SlimLoadingBarModule.forRoot()
   ],
   providers: [],

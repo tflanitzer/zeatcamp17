@@ -4,11 +4,13 @@ import { TranslationRoutingModule } from "app/+translation/translation-routing.m
 import { TranslatorComponent } from "app/+translation/translator/translator.component";
 import { FormsModule } from "@angular/forms";
 import { TranslatorService } from "app/+translation/translator.service";
+import { SharedModule } from "app/+shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     TranslationRoutingModule
   ],
   declarations: [

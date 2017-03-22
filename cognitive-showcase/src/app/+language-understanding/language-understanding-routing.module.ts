@@ -1,10 +1,9 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { TranslatorComponent } from "app/+translation/translator/translator.component";
+import { IntroducerComponent } from "app/+language-understanding/introducer/introducer.component";
 
 const appRoutes: Routes = [
-  { path: 'translation', component: TranslatorComponent },
+  { path: 'language-understanding', component: IntroducerComponent },
 ];
 
 @NgModule({
@@ -15,4 +14,4 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class TranslationRoutingModule {}
+export class LanguageUnderstandingRoutingModule {}

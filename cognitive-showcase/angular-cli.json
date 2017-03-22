@@ -24,7 +24,8 @@
         "../node_modules/ng2-slim-loading-bar/bundles/style.css"
       ],
       "scripts": [
-          "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "lib/speech.1.0.0.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
