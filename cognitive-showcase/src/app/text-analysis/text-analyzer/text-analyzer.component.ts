@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TextAnalyzerService } from "app/shared/text-analyzer.service";
+import { TextAnalysis } from "app/shared/text-analysis";
+import { SlimLoadingBarService } from "ng2-slim-loading-bar";
 
 @Component({
   selector: 'app-text-analyzer',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./text-analyzer.component.css']
 })
 export class TextAnalyzerComponent implements OnInit {
+  private analysis: TextAnalysis;
 
-  constructor() { }
+  constructor(private textanalyzer: TextAnalyzerService, private slimLoadingBarService: SlimLoadingBarService) { }
 
   ngOnInit() {
   }
 
+  submit(text: string) {
+    if (!text) {
+      this.analysis = undefined;
+      return;
+    }
+
+    this.slimLoadingBarService.reset();
+    this.slimLoadingBarService.start()
+
+    this.textanalyzer.analyze(text).subscribe(analysis => {
+      this.analysis = analysis;
+
+      this.slimLoadingBarService.complete();
+    });
+  }
 }
