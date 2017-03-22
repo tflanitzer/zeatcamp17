@@ -19,7 +19,6 @@ export class ListPersonsService {
     let url = this.definePersonEndpoint ;  // + '?' + 'personGroupId=' + this.personGroupID ;
 
     let requestHeaders = new Headers({ 
-              'Content-Type': 'application/json',
               'Accept': 'application/json',
               'Ocp-Apim-Subscription-Key' : this.subscriptionKey
             });
@@ -27,8 +26,6 @@ export class ListPersonsService {
 
     return this.http.get(this.definePersonEndpoint, options)
                     .map(extractData => {
-                      let body = extractData.json();
-                      console.log("body" + extractData.json());
                       return extractData.json();
                     });
     

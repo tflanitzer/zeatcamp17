@@ -44,10 +44,10 @@ export class PersonListComponent implements OnInit {
 
 
   onSelect(person: Person) {
-    this.router.navigate(['/person', person.personId]);
+    this.router.navigate(['face-recognition/person', person.personId]);
   }
 
   createNew() {
-    this.router.navigate(['/addperson']);
+    this.router.navigate(['face-recognition/addperson']);
   }
 }

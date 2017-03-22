@@ -22,6 +22,9 @@ import { PersonListComponent } from "app/face-recognition/persons/person-list.co
     PersonAddComponent,
     PersonTrainComponent
 
+  ], 
+  exports: [
+    PersonRoutingModule
   ]
 })
 export class PersonsModule { }

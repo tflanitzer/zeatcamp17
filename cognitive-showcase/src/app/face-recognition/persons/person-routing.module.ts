@@ -6,15 +6,11 @@ import { PersonListComponent } from "app/face-recognition/persons/person-list.co
 import { PersonDetailComponent } from "app/face-recognition/persons/person-detail.component";
 
 const personRoutes: Routes = [
-  { path: 'persons',  component: PersonListComponent },
-  { path: 'person/:id', component: PersonDetailComponent },
-  { path: 'addperson', component: PersonAddComponent },
-  { path: 'train/:id', component: PersonTrainComponent }
-  
+
 ];
 @NgModule({
   imports: [
-    RouterModule.forChild(personRoutes)
+    RouterModule.forRoot(personRoutes)
   ],
   exports: [
     RouterModule
