@@ -10,6 +10,8 @@ export class ListenerService {
   private micClient: any;
   private listeningSubject: Subject<string>;
 
+  readonly defaultLanguage = "de-de";
+
   constructor() {
     this.listeningSubject = new Subject<string>();
 
@@ -32,7 +34,10 @@ export class ListenerService {
     this.listeningSubject.next(transcript[0].display);
   }
 
-  startListening(): Observable<string> {
+  startListening(language?: string): Observable<string> {
+    language = language || this.defaultLanguage;
+    this.micClient._prefs.locale = language;
+    
     this.micClient.startMicAndRecognition();
 
     return this.listeningSubject;

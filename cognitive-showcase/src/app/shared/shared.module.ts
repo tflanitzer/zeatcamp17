@@ -8,6 +8,7 @@ import { StsTokenService } from "app/shared/sts-token.service";
 import { ListeningInputComponent } from './listening-input/listening-input.component';
 import { FormsModule } from "@angular/forms";
 import { WebcamStorageService } from "app/shared/webcam-storage.service";
+import { TextAnalyzerService } from "app/shared/text-analyzer.service";
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { WebcamStorageService } from "app/shared/webcam-storage.service";
     ListenerService,
     SpeakerService,
     StsTokenService,
-    WebcamStorageService
+    WebcamStorageService,
+    TextAnalyzerService
   ],
   exports: [
     SlimLoadingBarModule,

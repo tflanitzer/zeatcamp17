@@ -22,10 +22,6 @@ export class SpeakerService {
 
   private synthesize(text: string): Observable<ArrayBuffer> {
     return this.tokenService.getAuthorizationHeader(this.bingSpeechSubscriptionKey).concatMap(authorizationHeader => {
-      // let urlParams = new URLSearchParams();
-      // urlParams.append('VoiceType', 'Female');
-      // urlParams.append('Locale', 'de-DE');
-      // urlParams.append('Text', text);
 
       let url = this.synthesizeEndpoint;
       let body = "<speak version='1.0' xml:lang='de-DE'><voice xml:lang='de-DE' xml:gender='Male' name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" + text + "</voice></speak>";

@@ -10,6 +10,7 @@ import { ListenerService } from "app/shared/listener.service";
 export class ListeningInputComponent implements OnInit, OnDestroy {
   @Input() name: string;
   @Input() placeholder: string;
+  @Input() language: string;
   
   @Input() value: string;
   @Output() valueChange  = new EventEmitter<string>();
@@ -33,7 +34,7 @@ export class ListeningInputComponent implements OnInit, OnDestroy {
     if (this.isListening) {
       this.listener.stopListening();
     } else {
-      this.listener.startListening().subscribe(transcript => {
+      this.listener.startListening(this.language).subscribe(transcript => {
         this.value = transcript;
         this.inputSubject.next();
       });
