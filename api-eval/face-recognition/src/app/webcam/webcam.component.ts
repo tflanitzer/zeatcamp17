@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
+import { FaceRecognitionServiceService } from "app/face-recognition-service.service";
+import { Observable } from "rxjs/Rx";
+
 
 @Component({
   selector: 'app-webcam',
@@ -13,11 +16,18 @@ export class WebcamComponent implements OnInit {
     imageURLAsString:string;
     private _videoStream:any;
 
-    constructor(private sanitizer:DomSanitizer, private element:ElementRef) {
+    private videoElement:any;
+
+    constructor(private sanitizer:DomSanitizer, private element:ElementRef, private localService:FaceRecognitionServiceService) {
     }
 
     ngOnInit() {
+        this.videoElement = this.element.nativeElement.querySelector('video');
         this.showCam();
+        let timer = Observable.timer(4000,5000);
+        timer.subscribe(t =>
+            this.performCapture()
+        );
     }
 
     private showCam() {
@@ -31,52 +41,46 @@ export class WebcamComponent implements OnInit {
         // 3. Trigger lifecycle tick (ugly, but works - see (better) Promise example below)
         //setTimeout(() => { }, 100);
 
-        // 4. Get stream from webcam
-        nav.getUserMedia(
-            {video: true},
-            (_videoStream) => {
-                let webcamUrl = URL.createObjectURL(_videoStream);
-
-                // 4a. Tell Angular the stream comes from a trusted source
-                this.videosrc = this.sanitizer.bypassSecurityTrustUrl(webcamUrl);
-
-                // 4b. Start video element to stream automatically from webcam.
-                this.element.nativeElement.querySelector('video').autoplay = true;
-            },
-            (err) => console.log(err));
-
-
-        // OR: other method, see http://stackoverflow.com/questions/32645724/angular2-cant-set-video-src-from-navigator-getusermedia for credits
-        var promise = new Promise<string>((resolve, reject) => {
-            nav.getUserMedia({video: true}, (_videoStream) => {
-                resolve(_videoStream);
-            }, (err) => reject(err));
-        }).then((_videoStream) => {
-            let webcamUrl = URL.createObjectURL(_videoStream);
-            this.videosrc = this.sanitizer.bypassSecurityTrustResourceUrl(webcamUrl);
-            // for example: type logic here to send stream to your  server and (re)distribute to
-            // other connected clients.
-        }).catch((error) => {
-            console.log(error);
-        });
+      // 4. Get stream from webcam
+      var promise = new Promise<string>((resolve, reject) => {
+          nav.getUserMedia({video: true}, (_videoStream) => {
+              resolve(_videoStream);
+          }, (err) => reject(err));
+      }).then((_videoStream) => {
+          let webcamUrl = URL.createObjectURL(_videoStream);
+          this.videosrc = this.sanitizer.bypassSecurityTrustResourceUrl(webcamUrl);
+          this.videoElement.autoplay = true;
+      }).catch((error) => {
+          console.log(error);
+      });
+        
     }
 
     performCapture() {
       var hiddenCanvas = document.createElement('canvas');
-      var video = this.element.nativeElement.querySelector('video');
-
-      hiddenCanvas.height = video.videoHeight /2;
-      hiddenCanvas.width = video.videoWidth / 2;
+      
+      hiddenCanvas.height = this.videoElement.videoHeight /2;
+      hiddenCanvas.width = this.videoElement.videoWidth / 2;
 
       var ctx = hiddenCanvas.getContext('2d');
        
-      ctx.drawImage(video,0, 0, hiddenCanvas.width, hiddenCanvas.height);
+      ctx.drawImage(this.videoElement,0, 0, hiddenCanvas.width, hiddenCanvas.height);
 
       this.imageURL = hiddenCanvas.toDataURL('image/png'); 
-      this.imageURLAsString = hiddenCanvas.toDataURL();
       
-      
-      
+      var mimeString = this.imageURL.split(',')[0].split(':')[1].split(';')[0];
+
+      this.localService.storeScreenShoot(this.dataURItoBlob(this.imageURL, mimeString));
     }
+
+    dataURItoBlob(dataURI, mimeString:string) {
+      var byteString = atob(dataURI.split(',')[1]);
+      var ab = new ArrayBuffer(byteString.length);
+      var ia = new Uint8Array(ab);
+      for (var i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+      }
+      return new Blob([ab], { type: mimeString });
+}
 
 }
