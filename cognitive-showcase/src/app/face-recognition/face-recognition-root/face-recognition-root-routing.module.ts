@@ -17,7 +17,8 @@ const appRoutes: Routes = [
       {path: 'persons', component: PersonListComponent },
       { path: 'person/:id', component: PersonDetailComponent },
       { path: 'addperson', component: PersonAddComponent },
-      { path: 'train/:id', component: PersonTrainComponent}
+      { path: 'train/:id', component: PersonTrainComponent},
+      { path: 'detection', component: IdentifyPersonComponent},
     ]
  }
   

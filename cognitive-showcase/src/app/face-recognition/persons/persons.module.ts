@@ -4,7 +4,6 @@ import { FormsModule }    from '@angular/forms';
 
 import { PersonAddComponent } from "app/face-recognition/persons/person-add.component";
 import { PersonTrainComponent } from "app/face-recognition/persons/person-train.component";
-import { PersonRoutingModule } from "app/face-recognition/persons/person-routing.module";
 import { PersonDetailComponent } from "app/face-recognition/persons/person-detail.component";
 import { PersonListComponent } from "app/face-recognition/persons/person-list.component";
 
@@ -12,19 +11,13 @@ import { PersonListComponent } from "app/face-recognition/persons/person-list.co
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    PersonRoutingModule
-    
+    FormsModule
   ],
   declarations: [
     PersonDetailComponent,
     PersonListComponent,
     PersonAddComponent,
     PersonTrainComponent
-
-  ], 
-  exports: [
-    PersonRoutingModule
-  ]
+  ] 
 })
 export class PersonsModule { }

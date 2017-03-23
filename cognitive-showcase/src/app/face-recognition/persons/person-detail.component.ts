@@ -3,6 +3,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Person } from "app/face-recognition/person";
 import { FetchPersonService } from "app/face-recognition/fetch-person.service";
+import { DeletePersonService } from "app/face-recognition/delete-person.service";
 
 @Component({
   template: `
@@ -35,7 +36,8 @@ export class PersonDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: FetchPersonService
+    private service: FetchPersonService,
+    private deletePersonService: DeletePersonService
   ) {}
 
   ngOnInit() {
@@ -46,10 +48,13 @@ export class PersonDetailComponent implements OnInit {
   }
 
   delete() {
-    console.log(this.person.name)
+    this.deletePersonService.deletePerson(this.person.personId).subscribe(response => {});
+
+    //TODO: check if result was ok 
+    this.router.navigate(['face-recognition/persons']);
   }
 
   train() {
-    this.router.navigate(['/train', this.person.personId]);
+    this.router.navigate(['face-recognition/train', this.person.personId]);
   }
 }

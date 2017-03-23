@@ -19,6 +19,7 @@ import { PersonAddComponent } from "app/face-recognition/persons/person-add.comp
 import { PersonTrainComponent } from "app/face-recognition/persons/person-train.component";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
+import { DeletePersonService } from "app/face-recognition/delete-person.service";
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { HttpModule } from "@angular/http";
   ],
   declarations: [
     FaceRecognitionRootComponent,
+    IdentifyPersonComponent,
     WebcamComponent
   ],
   providers: [
@@ -39,7 +41,8 @@ import { HttpModule } from "@angular/http";
     AddPersonFaceService,
     TrainService,
     IdentifyService,
-    FetchPersonService
+    FetchPersonService,
+    DeletePersonService
   ], exports: [
     FaceRecognitionRootComponent
   ]

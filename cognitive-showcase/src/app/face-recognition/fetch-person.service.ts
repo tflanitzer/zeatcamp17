@@ -23,7 +23,7 @@ export class FetchPersonService {
               'Ocp-Apim-Subscription-Key' : this.subscriptionKey
             });
     let options = new RequestOptions({ headers: requestHeaders });
-    console.log(url);
+
     return this.http.get(url, options)
                     .map(extractData => {
                       return extractData.json();

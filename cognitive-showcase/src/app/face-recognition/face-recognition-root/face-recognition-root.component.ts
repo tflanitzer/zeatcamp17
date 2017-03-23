@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
     <div class="container">
       <div class="text-center">
     <nav>
-        <button  routerLink="persons" class="btn btn-success">Personen</button>
+        <button  routerLink="persons" class="btn btn-success">Persons</button>
         
         <button routerLink="detection" class="btn btn-danger">Detection</button>
       </nav>
