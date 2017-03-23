@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, OnDestroy } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 import { Observable } from "rxjs/Observable";
 import { Face } from "app/face-recognition/face";
@@ -7,6 +7,7 @@ import { Person } from "app/face-recognition/person";
 import { DetectFaceService } from "app/face-recognition/detect-face.service";
 import { FetchPersonService } from "app/face-recognition/fetch-person.service";
 import { WebcamStorageService } from "app/shared/webcam-storage.service";
+import { Subscription } from "rxjs/Subscription";
 
 @Component({
   selector: 'app-identify-person',
@@ -14,6 +15,8 @@ import { WebcamStorageService } from "app/shared/webcam-storage.service";
   styleUrls: ['./identify-person.component.css']
 })
 export class IdentifyPersonComponent implements OnInit {
+        
+    private sub: Subscription;
 
     public videosrc:any;
     imageURL:string;
@@ -34,8 +37,8 @@ export class IdentifyPersonComponent implements OnInit {
    }
 
   ngOnInit() {
-    let timer = Observable.timer(7000,7000);
-        timer.subscribe(t =>
+    let timer = Observable.timer(7000,10000);
+    this.sub = timer.subscribe(t =>
                 this.isStillRunning 
                     ? console.log("still running ") // do nothing
                     : this.identify()
@@ -82,6 +85,12 @@ export class IdentifyPersonComponent implements OnInit {
 
       
   }
+
+    ngOnDestroy(){
+        this.sub.unsubscribe();
+
+    }
+
 
 
 
