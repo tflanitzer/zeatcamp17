@@ -11,6 +11,7 @@ import { TranslationModule } from "app/translation/translation.module";
 import { LanguageUnderstandingModule } from "app/language-understanding/language-understanding.module";
 import { TextAnalysisModule } from "app/text-analysis/text-analysis.module";
 import { FaceRecognitionModule } from "app/face-recognition/face-recognition.module";
+import { QnaModule } from "app/qna/qna.module";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FaceRecognitionModule } from "app/face-recognition/face-recognition.mod
     LanguageUnderstandingModule,
     TextAnalysisModule,
     FaceRecognitionModule,
+    QnaModule,
     SlimLoadingBarModule.forRoot()
   ],
   providers: [],

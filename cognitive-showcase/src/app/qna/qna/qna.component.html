@@ -1,0 +1,4 @@
+
+<app-listening-input name="question" placeholder="Wie kann ich dir bei Zühlke weiterhelfen?" (valueChange)="submit($event)" language="de-DE"></app-listening-input>
+
+<app-answer-presenter *ngIf="answer" [answer]="answer"></app-answer-presenter>
