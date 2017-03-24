@@ -1,12 +1,12 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes,  } from '@angular/router';
 import { IntroducerComponent } from "../language-understanding/introducer/introducer.component";
-import { FaceRecognitionRootComponent } from "../face-recognition/face-recognition-root/face-recognition-root.component";
-import { IdentifyPersonComponent } from "../face-recognition/identify-person/identify-person.component";
-import { PersonListComponent } from "../face-recognition/persons/person-list.component";
-import { PersonDetailComponent } from "../face-recognition/persons/person-detail.component";
-import { PersonAddComponent } from "../face-recognition/persons/person-add.component";
-import { PersonTrainComponent } from "../face-recognition/persons/person-train.component";
+import { FaceRecognitionRootComponent } from "./face-recognition-root.component";
+import { PersonListComponent } from "../persons/person-list.component";
+import { PersonDetailComponent } from "../persons/person-detail.component";
+import { PersonAddComponent } from "../persons/person-add.component";
+import { PersonTrainComponent } from "../persons/person-train.component";
+import { IdentifyPersonComponent } from "../identify-person/identify-person.component";
 
 const appRoutes: Routes = [
 

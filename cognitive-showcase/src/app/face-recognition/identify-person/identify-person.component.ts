@@ -63,13 +63,17 @@ export class IdentifyPersonComponent implements OnInit {
     speakGreeting(faces: Face[]) {
         let greeting = "";
 
-        for (let face of faces) {
-            if (face.name) {
-                if (greeting !== "") {
-                    greeting = greeting + "und ";
-                }
+        if (faces.length === 1) {
+            greeting = `${this.getName(faces[0])}. Du siehst aus wie ${Math.floor(faces[0].faceAttributes.age)}`;
+        } else {
+            for (let face of faces) {
+                if (face.name) {
+                    if (greeting !== "") {
+                        greeting = greeting + "und ";
+                    }
 
-                greeting = greeting + face.name;
+                    greeting = greeting + this.getName(face);
+                }
             }
         }
 
@@ -77,6 +81,20 @@ export class IdentifyPersonComponent implements OnInit {
             greeting = "Hallo " + greeting;
             this.speaker.speak(greeting);
         }
+    }
+
+    getName(face: Face): string {
+        let name = face.name;
+
+        if (name === "unknown") {
+            if (face.faceAttributes.gender == "male") {
+                name =  "Unbekannter";
+            } else {
+                name = "Unbekannte";
+            }
+        }
+
+        return name;
     }
 
     identifyFaces(faces: Face[]): Observable<Face[]> {

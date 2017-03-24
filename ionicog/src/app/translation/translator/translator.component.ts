@@ -4,7 +4,6 @@ import { TranslatorService } from "../translator.service";
 @Component({
   selector: 'app-translator',
   templateUrl: './translator.component.html',
-  styleUrls: ['./translator.component.css']
 })
 export class TranslatorComponent implements OnInit {
 

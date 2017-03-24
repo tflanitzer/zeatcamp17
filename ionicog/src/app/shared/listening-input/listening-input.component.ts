@@ -2,10 +2,11 @@ import { Component, OnInit, OnDestroy, Output, EventEmitter, Input } from '@angu
 import { Subject } from "rxjs/Subject";
 import { ListenerService } from "../../shared/listener.service";
 
+
 @Component({
   selector: 'app-listening-input',
-  templateUrl: './listening-input.component.html',
-  styleUrls: ['./listening-input.component.css']
+  template: 'shared/listening-input/listening-input.component.html',
+  styles: ['shared/listening-input/listening-input.component.css']
 })
 export class ListeningInputComponent implements OnInit, OnDestroy {
   @Input() name: string;

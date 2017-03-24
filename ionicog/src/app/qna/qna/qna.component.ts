@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SlimLoadingBarService } from "ng2-slim-loading-bar";
-import { QnaService } from "../qna/qna.service";
+import { QnaService } from "../qna.service";
 
 @Component({
   selector: 'app-qna',
-  templateUrl: './qna.component.html',
-  styleUrls: ['./qna.component.css']
+  templateUrl: './qna.component.html'
 })
 export class QnaComponent implements OnInit {
   private answer: string;

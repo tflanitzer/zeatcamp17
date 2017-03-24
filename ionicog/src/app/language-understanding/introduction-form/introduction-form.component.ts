@@ -6,8 +6,7 @@ import 'rxjs/add/operator/debounceTime'
 
 @Component({
   selector: 'app-introduction-form',
-  templateUrl: './introduction-form.component.html',
-  styleUrls: ['./introduction-form.component.css']
+  templateUrl: './introduction-form.component.html'
 })
 export class IntroductionFormComponent implements OnInit {
   @Output() entered = new EventEmitter<string>();

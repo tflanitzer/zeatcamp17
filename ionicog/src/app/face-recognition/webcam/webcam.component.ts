@@ -1,13 +1,12 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 import { Observable } from "rxjs/Rx";
-import { WebcamStorageService } from "../shared/webcam-storage.service";
+import { WebcamStorageService } from "../../shared/webcam-storage.service";
 
 
 @Component({
   selector: 'app-webcam',
-  templateUrl: './webcam.component.html',
-  styleUrls: ['./webcam.component.css']
+  templateUrl: './webcam.component.html'
 })
 export class WebcamComponent implements OnInit {
 
