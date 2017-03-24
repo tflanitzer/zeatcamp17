@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 export class WebcamStorageService {
 
   private currentPicture:Blob;
+  private currentImgUrl:string;
 
   constructor() { }
 
@@ -15,4 +16,11 @@ export class WebcamStorageService {
     return this.currentPicture;
   }
 
+  public storeUrl(url:string){
+    this.currentImgUrl = url;
+  }
+
+  public getLatestUrl():string {
+    return this.currentImgUrl;
+  }
 }
