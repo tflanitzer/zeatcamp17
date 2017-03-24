@@ -1,0 +1,28 @@
+<h2>Analysis</h2>
+
+<h3>Sentiment</h3>
+<div class="sentiment_border">
+  <div class="sentiment" [style.width.%]="analysis.sentiment*100">{{analysis.sentiment}}</div>
+</div>
+
+<h3>Key Phrases</h3>
+<ul>
+  <li *ngFor="let keyPhrase of analysis.keyPhrases">{{keyPhrase}}</li>
+</ul>
+
+<h3>Languages</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Language</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let language of analysis.detectedLanguages">
+      <td>{{language.name}}</td>
+      <td>{{language.score}}</td>
+    </tr>
+  </tbody>
+</table>
+

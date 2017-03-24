@@ -8,6 +8,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AppRoutingModule } from "./app-routing.module";
+import { TranslationModule } from "./translation/translation.module";
+import { LanguageUnderstandingModule } from "./language-understanding/language-understanding.module";
+import { TextAnalysisModule } from "./text-analysis/text-analysis.module";
+import { FaceRecognitionModule } from "./face-recognition/face-recognition.module";
+import { QnaModule } from "./qna/qna.module";
+import { SlimLoadingBarModule } from "ng2-slim-loading-bar";
+import { NavigationComponent } from "./navigation/navigation.component";
 
 @NgModule({
   declarations: [
@@ -15,10 +23,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    NavigationComponent
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AppRoutingModule,
+    TranslationModule,
+    LanguageUnderstandingModule,
+    TextAnalysisModule,
+    FaceRecognitionModule,
+    QnaModule,
+    SlimLoadingBarModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

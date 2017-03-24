@@ -1,0 +1,8 @@
+<div class="input-group input-group-lg reasonable_max_width">
+  <input class="form-control form-control-lg" [name]="name" [placeholder]="placeholder" [(ngModel)]="value" (keydown.enter)="inputSubject.next()"
+    (input)="inputSubject.next()">
+  <div class="input-group-addon form-control-lg" (click)="toggleListening()">
+    <span *ngIf="isListening" class="glyphicon glyphicon-stop"></span>
+    <span *ngIf="!isListening" class="glyphicon glyphicon-ice-lolly"></span>
+  </div>
+</div>
