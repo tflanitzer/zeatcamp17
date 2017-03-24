@@ -1,13 +1,10 @@
 
 <div class="container">
   <div class="text-center">
-    <textarea name="identifyResult" [(ngModel)]="identifyResult" rows="8" cols="80" readonly></textarea>
+    <div *ngIf="imageURL"  class="output"> 
+      <img [src]="imageURL">
+    </div> 
   </div>
 </div>
 
-      
-<canvas id="layout"></canvas>
-<div *ngIf="imageURL"  class="output"> 
-  
-  <img [src]="imageURL">
-</div> 
+

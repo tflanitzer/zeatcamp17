@@ -59,8 +59,8 @@ export class WebcamComponent implements OnInit {
     performCapture() {
       var hiddenCanvas = document.createElement('canvas');
       
-      hiddenCanvas.height = this.videoElement.videoHeight /2;
-      hiddenCanvas.width = this.videoElement.videoWidth / 2;
+      hiddenCanvas.height = this.videoElement.videoHeight;
+      hiddenCanvas.width = this.videoElement.videoWidth;
 
       var ctx = hiddenCanvas.getContext('2d');
        
