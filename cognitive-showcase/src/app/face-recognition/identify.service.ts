@@ -26,7 +26,7 @@ export class IdentifyService {
         faceId
       ],
       maxNumOfCandidatesReturned: 1,
-      confidenceThreshold: 0.9
+      confidenceThreshold: 0.75
     };
 
     // make the call 

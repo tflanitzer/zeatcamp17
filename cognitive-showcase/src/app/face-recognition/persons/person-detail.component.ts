@@ -16,7 +16,7 @@ import { DeletePersonService } from "app/face-recognition/delete-person.service"
         </div>
         <div class="form-group">
           <label for="pwd">UserData:</label>
-          <input type="text" class="form-control" id="userData"  value="{{ person.userData }}">
+          <input type="text" class="form-control" id="userData"  [(ngModel)]="person.userData">
         </div>
         <button class="btn btn-danger" (click)="delete()">Delete</button>
         <!--<button class="btn btn-success">Update</button>-->

@@ -14,8 +14,9 @@ import { FetchPersonService } from "app/face-recognition/fetch-person.service";
 @Component({
   template: `
   <div *ngIf="person" class="container">
-      <div class="progress">
-          <input class="form-control form-control-lg" [(ngModel)]="sizeOfSample">
+      <div >
+          
+          <button type="button" (click)="toggle()" class="btn {{button}}">Samples <span class="badge">{{ sizeOfSample }}/10</span></button>
       </div>
 
   </div>
@@ -23,9 +24,12 @@ import { FetchPersonService } from "app/face-recognition/fetch-person.service";
 })
 export class PersonTrainComponent implements OnInit {
     
+    private timer: Observable<number>;
     private person: Person;
-    private sizeOfSample: number = 1;
+    private sizeOfSample: number = 0;
     private percentDone = 0;
+    private button:string = "btn-danger";
+
 
     private sub: Subscription;
 
@@ -39,19 +43,30 @@ export class PersonTrainComponent implements OnInit {
     ) {
     }
 
+    toggle() {
+      if (this.sub == null) {
+          this.button = "btn-success";
+          this.sub = this.timer.subscribe(t =>
+                        {if (this.sizeOfSample > 9) {
+                            this.train();
+                        } else {
+                            this.addFace()
+                        }}
+                      );
+      } else {
+        this.sub.unsubscribe(); 
+        this.sub = null;
+        this.button = "btn-danger";
+      }
+    }
+
     ngOnInit() {
        this.route.params
           .switchMap((params: Params) => this.service.getPerson(params['id']))
           .subscribe((person: Person) => this.person = person);
         
-        let timer = Observable.timer(8000,7000);
-        this.sub = timer.subscribe(t =>
-          {if (this.sizeOfSample > 9) {
-            this.train();
-          } else {
-            this.addFace()
-          }}
-        );
+        this.timer = Observable.timer(8000,7000);
+       
     }
 
     
@@ -77,13 +92,12 @@ export class PersonTrainComponent implements OnInit {
       this.trainService.trainGroup().subscribe(response => {console.log(response)});
       
       //TODO: check if result was ok 
-      this.router.navigate(['/persons']);
+      this.router.navigate(['face-recognition/persons']);
 
     }
 
      ngOnDestroy(){
-        this.sub.unsubscribe();
-
+        this.sub.unsubscribe(); 
     }
 
 

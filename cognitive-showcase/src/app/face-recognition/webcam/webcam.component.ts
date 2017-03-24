@@ -69,7 +69,7 @@ export class WebcamComponent implements OnInit {
       this.imageURL = hiddenCanvas.toDataURL('image/png'); 
       
       var mimeString = this.imageURL.split(',')[0].split(':')[1].split(';')[0];
-
+      this.localService.storeUrl(this.imageURL);
       this.localService.storeScreenShoot(this.dataURItoBlob(this.imageURL, mimeString));
     }
 
