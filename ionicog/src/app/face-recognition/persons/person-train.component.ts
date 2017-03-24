@@ -3,11 +3,11 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { Observable } from "rxjs/Observable";
 import { Params, ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
-import { Person } from "../face-recognition/person";
-import { AddPersonFaceService } from "../face-recognition/add-person-face.service";
-import { TrainService } from "../face-recognition/train.service";
-import { WebcamStorageService } from "../shared/webcam-storage.service";
-import { FetchPersonService } from "../face-recognition/fetch-person.service";
+import { Person } from "app/face-recognition/person";
+import { AddPersonFaceService } from "app/face-recognition/add-person-face.service";
+import { TrainService } from "app/face-recognition/train.service";
+import { WebcamStorageService } from "app/shared/webcam-storage.service";
+import { FetchPersonService } from "app/face-recognition/fetch-person.service";
 
 
 

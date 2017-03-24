@@ -4,7 +4,7 @@ import { Observable } from "rxjs/Observable";
 
 
 import 'rxjs/add/operator/map'
-import { Person } from "../face-recognition/person";
+import { Person } from "app/face-recognition/person";
 
 
 @Injectable()

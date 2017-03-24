@@ -1,6 +1,6 @@
 
 
-import { Emotion } from "./emotion";
+import { Emotion } from "app/face-recognition/emotion";
 
 export class FaceAttributes {
 

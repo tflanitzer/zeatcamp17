@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 import { Observable } from "rxjs/Rx";
-import { WebcamStorageService } from "../shared/webcam-storage.service";
+import { WebcamStorageService } from "../../shared/webcam-storage.service";
 
 
 @Component({
@@ -59,8 +59,8 @@ export class WebcamComponent implements OnInit {
     performCapture() {
       var hiddenCanvas = document.createElement('canvas');
       
-      hiddenCanvas.height = this.videoElement.videoHeight /2;
-      hiddenCanvas.width = this.videoElement.videoWidth / 2;
+      hiddenCanvas.height = this.videoElement.videoHeight;
+      hiddenCanvas.width = this.videoElement.videoWidth;
 
       var ctx = hiddenCanvas.getContext('2d');
        
