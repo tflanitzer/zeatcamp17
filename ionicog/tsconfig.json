@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
+    "baseUrl": "",
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2015"
+      "es2016"
     ],
+    "mapRoot": "./",
     "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
-    "target": "es5",
-    "baseUrl": "src"
+    "target": "es5"
   },
   "include": [
     "src/**/*.ts"

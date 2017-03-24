@@ -1,18 +1,17 @@
 import { Component, OnInit, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 import { Observable } from "rxjs/Observable";
-import { Face } from "../face-recognition/face";
-import { IdentifyResult, IdentifyService } from "../face-recognition/identify.service";
-import { Person } from "../face-recognition/person";
-import { DetectFaceService } from "../face-recognition/detect-face.service";
-import { FetchPersonService } from "../face-recognition/fetch-person.service";
-import { WebcamStorageService } from "../shared/webcam-storage.service";
+import { Face } from "../face";
+import { IdentifyResult, IdentifyService } from "../identify.service";
+import { Person } from "../person";
+import { DetectFaceService } from "../detect-face.service";
+import { FetchPersonService } from "../fetch-person.service";
 import { Subscription } from "rxjs/Subscription";
+import { WebcamStorageService } from "../../shared/webcam-storage.service";
 
 @Component({
   selector: 'app-identify-person',
-  templateUrl: './identify-person.component.html',
-  styleUrls: ['./identify-person.component.css']
+  templateUrl: './identify-person.component.html'
 })
 export class IdentifyPersonComponent implements OnInit {
         

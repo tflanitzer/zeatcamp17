@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TextAnalyzerService } from "../shared/text-analyzer.service";
-import { TextAnalysis } from "../shared/text-analysis";
 import { SlimLoadingBarService } from "ng2-slim-loading-bar";
+import { TextAnalysis } from "../../shared/text-analysis";
+import { TextAnalyzerService } from "../../shared/text-analyzer.service";
 
 @Component({
   selector: 'app-text-analyzer',
-  templateUrl: './text-analyzer.component.html',
-  styleUrls: ['./text-analyzer.component.css']
+  templateUrl: './text-analyzer.component.html'
 })
 export class TextAnalyzerComponent implements OnInit {
   private analysis: TextAnalysis;

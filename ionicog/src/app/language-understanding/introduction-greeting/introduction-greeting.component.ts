@@ -1,11 +1,10 @@
 import { Component, OnInit, OnChanges, Input, SimpleChange } from '@angular/core';
-import { IntroducedPerson } from "../language-understanding/introduced-person";
-import { SpeakerService } from "../shared/speaker.service";
+import { IntroducedPerson } from "../introduced-person";
+import { SpeakerService } from "../../shared/speaker.service";
 
 @Component({
   selector: 'app-introduction-greeting',
-  templateUrl: './introduction-greeting.component.html',
-  styleUrls: ['./introduction-greeting.component.css']
+  templateUrl: './introduction-greeting.component.html'
 })
 export class IntroductionGreetingComponent implements OnInit, OnChanges {
   @Input() person: IntroducedPerson;

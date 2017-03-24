@@ -1,9 +1,9 @@
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Person } from "../face-recognition/person";
-import { FetchPersonService } from "../face-recognition/fetch-person.service";
-import { DeletePersonService } from "../face-recognition/delete-person.service";
+import { FetchPersonService } from "../fetch-person.service";
+import { DeletePersonService } from "../delete-person.service";
+import { Person } from "../person";
 
 @Component({
   template: `

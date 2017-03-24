@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IntroducedPerson } from "../language-understanding/introduced-person";
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import { LuisClientService } from "../../shared/luis-client.service";
+import { IntroducedPerson } from "../introduced-person";
 
 @Component({
   selector: 'app-introducer',
-  templateUrl: './introducer.component.html',
-  styleUrls: ['./introducer.component.css']
+  templateUrl: './introducer.component.html'
 })
 export class IntroducerComponent implements OnInit {
   introducedPerson: IntroducedPerson;

@@ -2,8 +2,8 @@ import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Person } from "../face-recognition/person";
-import { ListPersonsService } from "../face-recognition/list-persons.service";
+import { Person } from "../person";
+import { ListPersonsService } from "../list-persons.service";
 
 @Component({
   template: `
