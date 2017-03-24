@@ -52,10 +52,31 @@ export class IdentifyPersonComponent implements OnInit {
 
                 let faces: Face[] = response;
                 this.identifyFaces(faces).subscribe(result => {
+                    this.speakGreeting(result);
+
                     this.drawImage(result);
                 })
 
             });
+    }
+
+    speakGreeting(faces: Face[]) {
+        let greeting = "";
+
+        for (let face of faces) {
+            if (face.name) {
+                if (greeting !== "") {
+                    greeting = greeting + "und ";
+                }
+
+                greeting = greeting + face.name;
+            }
+        }
+
+        if (greeting !== "") {
+            greeting = "Hallo " + greeting;
+            this.speaker.speak(greeting);
+        }
     }
 
     identifyFaces(faces: Face[]): Observable<Face[]> {
