@@ -2,3 +2,11 @@
     padding-left:15px;
     padding-right:15px;
 }
+
+.spaced_form {
+    margin-top:30px;
+}
+
+.reasonable_max_width {
+    max-width:800px;
+}

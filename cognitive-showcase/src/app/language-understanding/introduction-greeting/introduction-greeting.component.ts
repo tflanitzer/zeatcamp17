@@ -25,21 +25,15 @@ export class IntroductionGreetingComponent implements OnInit, OnChanges {
     let text = '';
 
     if (this.person.name) {
-      text = text + 'Hallo ' + this.person.name;
+      text = text + `Hallo ${this.person.name}! `;
     }
 
     if (this.person.age) {
-      if (this.person.age > 30) {        
-        text = text + ' du alter Sack.';
-      } else {
-        text = text + ' du Jungspund.';
-      }
-    } else if (text != '') {
-      text = text + '.';
+      text = text + `Bist du wirklich schon ${this.person.age} Jahre alt? `;
     }
-    
+
     if (this.person.origin) {
-      text = text + ' In ' + this.person.origin + ' wohnen die hellsten Köpfe.'
+      text = text + `Ist ${this.person.origin} eine Reise wert?`;
     }
 
     if (text === '') {
